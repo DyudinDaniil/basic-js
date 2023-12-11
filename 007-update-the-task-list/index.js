@@ -6,15 +6,18 @@ function addTask(task) {
 
 function removeTaskByName(task) {
   if (tasks.indexOf(task) !== -1) {
-    tasks.splice(tasks.indexOf(task), 1);
+    return tasks.splice(tasks.indexOf(task), 1);
+  } else {
+    return;
   }
 }
 
 function moveTaskByName(task) {
-  if (tasks.indexOf(task) !== -1) {
-    removeTaskByName(task);
-    tasks.unshift(task);
+  const res = removeTaskByName(task);
+  if (!res) {
+    return;
   }
+  tasks.unshift(res[0]);
 }
 
 console.log(tasks);
