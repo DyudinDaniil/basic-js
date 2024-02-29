@@ -1,6 +1,7 @@
 const warehous = {
     goods: [],
     addGood: function(good) {
+        if (this.goods.find(el => el.id === good.id)) return;
         this.goods.push(good);
     },
     findGoodById: function(id) {
@@ -38,6 +39,9 @@ const paper = {
     color: 'red'
 }
 
+warehous.addGood(car);
+warehous.addGood(chair);
+warehous.addGood(paper);
 warehous.addGood(car);
 warehous.addGood(chair);
 warehous.addGood(paper);
